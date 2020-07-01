@@ -112,24 +112,12 @@
                 "run update;"\
             "fi;"\
             "\0"\
-        "port_mode_change="\
-            "fdt addr ${dtb_mem_addr}; "\
-            "kbi portmode r;"\
-            "if test ${port_mode} = 0; then "\
-                "fdt set /usb3phy@ffe09080 status okay;"\
-                "fdt set /pcieA@fc000000 status disable;"\
-            "else "\
-                "fdt set /usb3phy@ffe09080 status disable;"\
-                "fdt set /pcieA@fc000000 status okay;"\
-            "fi;"\
-            "\0"\
         "fan_stop=" \
             "i2c mw 0x18 0x88 0" \
             "\0"\
 
 #define CONFIG_PREBOOT  \
             "run upgrade_key;"\
-            "run port_mode_change;"\
             "run fan_stop;"
 
 #define CONFIG_BOOTCOMMAND "run swarmboot"
