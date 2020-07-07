@@ -71,6 +71,9 @@
 
 #define CONFIG_CMD_BOOTCTOL_AVB
 
+/* watchdog command */
+#define CONFIG_CMD_WATCHDOG 1
+
 /* Serial config */
 #define CONFIG_CONS_INDEX 2
 #define CONFIG_BAUDRATE  115200
